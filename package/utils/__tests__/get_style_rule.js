@@ -47,9 +47,12 @@ describe('getStyleRule', () => {
       return currentLoader.loader === 'postcss-loader'
     })
 
+    console.log("Loader");
+    console.log(loader.options);
     if (typeof loader.options.config === "string") {
       expect(loader.options).toContain('lib/install/config/.postcssrc.yml');
     } else {
+      console.log(loader.options);
       expect(loader.options.config.path).toContain('lib/install/config/.postcssrc.yml');
     }
   });
